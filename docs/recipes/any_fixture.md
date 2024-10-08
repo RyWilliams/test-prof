@@ -28,7 +28,7 @@ RSpec.shared_context "account", account: true do
     end
   end
 
-  # Use .cached to retrieve the fixiture record
+  # Use .cached to retrieve the fixture record
   let(:account) { TestProf::AnyFixture.cached(:account) }
 end
 
@@ -44,7 +44,7 @@ end
 
 # Then in your tests
 
-# Active this fixture using a tag
+# Activate this fixture using a tag
 describe UsersController, :account do
   # ...
 end
@@ -115,9 +115,9 @@ let(:account) { Account.find(TestProf::AnyFixture.cached(:account).id) }
 
 ## Temporary disable fixtures
 
-Some of your tests might rely on _clean database_. Thus running them along with AnyFixture-dependent tests, could produce failures.
+Some of your tests might rely on a _clean database_. Thus running them along with AnyFixture-dependent tests, could produce failures.
 
-You can disable (or delete) all created fixture while running a specified example or group using the `:with_clean_fixture` shared context:
+You can disable (or delete) all created fixtures while running a specified example or group using the `:with_clean_fixture` shared context:
 
 ```ruby
 context "global state", :with_clean_fixture do
@@ -137,7 +137,7 @@ How does it work? It wraps the example group into a transaction (using [`before_
 let(:account) { fixture(:account) { create(:account) } }
 ```
 
-Reseting fixtures (i.e., delete data from the affected tables) can be _heavy_. Try to avoid such situations and write specs independent of the global state.
+Resetting fixtures (i.e., delete data from the affected tables) can be _heavy_. Try to avoid such situations and write specs independent of the global state.
 
 ## Usage report
 
